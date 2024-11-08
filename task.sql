@@ -3,7 +3,7 @@ USE ShopDB;
 
 -- Create a table to store countries 
 CREATE TABLE Countries (
-    ID INT NOT NULL,
+    ID INT,
     Name VARCHAR(50) NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=InnoDB;
@@ -11,7 +11,7 @@ CREATE TABLE Countries (
 -- Create a table for caching GeoIP data (Columns: ID, IP Range, CountryID)
 
 CREATE TABLE GeoIPCache (
-	  ID INT NOT NULL,
+	  ID INT,
     IPRange CHAR(15) NOT NULL,
 	  CountryID INT NOT NULL,
     PRIMARY KEY (ID)
@@ -25,7 +25,7 @@ CREATE TABLE ProductDescription (
     ProductID INT NOT NULL,
     Description VARCHAR(100) NOT NULL,
     PRIMARY KEY (ID)
-) ENGINE=InnoDB;
+) ENGINE=MyISAM;
 
 -- Create a table for storing logs. For now we don't need to save them, but we need to implement functionality (Columns: ID, Time, LogRecord)
 
