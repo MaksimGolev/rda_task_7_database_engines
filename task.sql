@@ -43,3 +43,5 @@ CREATE TABLE ProductReporting (
 	  ProductName VARCHAR(50) NOT NULL,
     Orders INT NOT NULL
 ) ENGINE=CSV;
+
+DROP TABLE ShopDB
