@@ -14,6 +14,7 @@ CREATE TABLE GeoIPCache (
 	  ID INT,
     IPRange CHAR(15) NOT NULL,
 	  CountryID INT NOT NULL,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE SET NULL,
     PRIMARY KEY (ID)
 ) ENGINE=Memory;
 
@@ -23,7 +24,8 @@ CREATE TABLE ProductDescription (
 	  ID INT NOT NULL,
 	  CountryID INT NOT NULL,
     ProductID INT NOT NULL,
-    Description VARCHAR(100) NOT NULL,
+    Description TEXT NOT NULL,
+    FOREIGN KEY (CountryID) REFERENCES Countries(ID) ON DELETE SET NULL,
     PRIMARY KEY (ID)
 ) ENGINE=MyISAM;
 
@@ -31,7 +33,7 @@ CREATE TABLE ProductDescription (
 
 CREATE TABLE Logs (
 	  ID INT NOT NULL,
-	  Timestamp TIMESTAMP NOT NULL,
+	  Timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
     LogRecord TEXT NOT NULL,
     PRIMARY KEY (ID)
 ) ENGINE=Blackhole;
